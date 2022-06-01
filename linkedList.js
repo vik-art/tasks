@@ -13,53 +13,43 @@ class LinkedList {
     constructor() {
         this.head = null,
         this.tail = null,
-        this.length = 0;
+        this.size = 0;
     }
-//methods
-// insert node to the end of the linked list
-push(val) {
-    const newNode = new Node(val);
-    if(!this.head) {
-        this.head = newNode;
-        this.tail = this.head
-    } else {
-        this.tail.next = newNode;
-        this.tail = newNode
+//properties 
+    head() {
+        return this.head;
     }
-    this.length ++;
-    return this
-}
 
-// insert node to the start of the linked list
-
-unshift(val) {
-    const newNode = new Node(val);
-    if(!this.head) {
-        this.head = newNode;
-        this.tail = this.head;
-    } else {
-        newNode.next = this.head;
-        this.tail = this.head;
-        this.head = newNode
+    tail() {
+        return this.tail;
     }
-    this.length ++;
-    return this
-}
-
-
-// return length, head and tail of linked list
 
     size() {
-        return this.length;
+        return this.size;
     }
-    head() {
-        return this.head
-    }
-    tail() {
-        return this.tail
-    }
+
+    //append - method
+    append(value) {
+        const newNode = new Node(value);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+            this.size++;
+            return this;
+        } 
+            this.tail.next = newNode;
+            this.tail = newNode;
+            this.size++;
+        return this;
+}
+
+
 }
 
 const list = new LinkedList();
 
-
+console.log(list.append("Some value 1"))
+console.log(list.append("Some value 2"))
+console.log(list.append("Some value 3"))
+console.log(list.head)
+console.log(list.tail)
