@@ -2,7 +2,7 @@
 
 class Queue {
     constructor(collection) {
-        this.collection = collection
+        this.collection = collection;
     }
 
     // - enqueue method insert an element to the end of the queue
@@ -18,12 +18,13 @@ class Queue {
 
     // length of collection 
 
-    getSize() {
+    size() {
         return this.collection.length;
     }
 }
 
 const item = new Queue([1, 2, 3, 4]);
+
 
 // - Stack - LIFO: last in first out
 
@@ -46,7 +47,7 @@ class Stack {
     }
 //length - get the size of the stack
 
-    getLength() {
+    size() {
         return this.collection.length;
     }
 
