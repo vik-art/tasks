@@ -1,8 +1,8 @@
 // Queue - FIFO: first in first out
 
 class Queue {
-    constructor(collection) {
-        this.collection = collection;
+    constructor() {
+        this.collection = [];
     }
 
     // - enqueue method insert an element to the end of the queue
@@ -23,14 +23,11 @@ class Queue {
     }
 }
 
-const item = new Queue([1, 2, 3, 4]);
-
-
 // - Stack - LIFO: last in first out
 
 class Stack {
-    constructor(collection) {
-        this.collection = collection
+    constructor() {
+        this.collection = []
     }
 
 //push - insert an element on the top of the stack
@@ -69,6 +66,4 @@ class Stack {
         return this.collection.length !== 0;
     }
 }
-
-const stack = new Stack([1, 2, 3, 4, 5, 6, 7]);
 
