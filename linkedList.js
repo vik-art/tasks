@@ -28,7 +28,7 @@ class LinkedList {
         return this.size;
     }
 
-    //append - method
+    //append - method for adding item to the end of the linked list
     append(value) {
         const newNode = new Node(value);
         if (!this.head) {
@@ -41,15 +41,36 @@ class LinkedList {
             this.tail = newNode;
             this.size++;
         return this;
-}
+    }
+    // prepend - method for adding item to the begining of the linked list
+
+    prepend(value) {
+        const newNode = new Node(value);
+            newNode.next = this.head;
+        this.head = newNode;
+        this.size++;
+            return this;
+    }
+
+    // find - for searching node by the value
+
+    find(value) {
+        let currentNode = this.head;
+        while (currentNode.next) {
+            if (currentNode.value === value) {
+                return currentNode;
+            } 
+        currentNode = currentNode.next;
+        }
+    }
 
 
 }
 
 const list = new LinkedList();
 
-console.log(list.append("Some value 1"))
-console.log(list.append("Some value 2"))
-console.log(list.append("Some value 3"))
-console.log(list.head)
-console.log(list.tail)
+list.append("1").append("2").append("3").prepend("4").prepend("5").prepend("6")
+
+console.log(list)
+
+console.log(list.find("4"))
