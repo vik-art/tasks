@@ -13,23 +13,53 @@ class LinkedList {
     constructor() {
         this.head = null,
         this.tail = null,
-        this.size = 0;
+        this.length = 0;
     }
 //methods
-
-add(val) {
+// insert node to the end of the linked list
+push(val) {
     const newNode = new Node(val);
     if(!this.head) {
         this.head = newNode;
-        this.tail = newNode
+        this.tail = this.head
     } else {
         this.tail.next = newNode;
         this.tail = newNode
     }
-    this.size ++;
+    this.length ++;
     return this
 }
+
+// insert node to the start of the linked list
+
+unshift(val) {
+    const newNode = new Node(val);
+    if(!this.head) {
+        this.head = newNode;
+        this.tail = this.head;
+    } else {
+        newNode.next = this.head;
+        this.tail = this.head;
+        this.head = newNode
+    }
+    this.length ++;
+    return this
+}
+
+
+// return length, head and tail of linked list
+
+    size() {
+        return this.length;
+    }
+    head() {
+        return this.head
+    }
+    tail() {
+        return this.tail
+    }
 }
 
 const list = new LinkedList();
-console.log(list.add("Some value"));
+
+
