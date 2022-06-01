@@ -11,10 +11,9 @@ class Queue {
         return this.collection
     }
 
-    // - dequeue method delete element from the beginning of the queue
+    // - dequeue method delete element from the beginning of the queue and return it
     dequeue() {
-        this.collection.shift();
-        return this.collection
+       return this.collection.shift();
     }
 
     // length of collection 
