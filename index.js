@@ -67,3 +67,24 @@ class Stack {
     }
 }
 
+// LinkedList - sequence of items in linear order which are linked to each other
+
+class LinkedList {
+    constructor() {
+        this.nodes = []
+    }
+//properties - size, head, tail
+
+get size() {
+    return this.nodes.length;
+}
+
+get head() {
+    return this.size ? this.nodes[0] : null
+}
+
+get tail() {
+    return this.size ? this.nodes[this.size - 1] : null
+}
+
+}
