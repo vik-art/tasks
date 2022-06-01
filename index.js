@@ -74,15 +74,19 @@ class LinkedList {
         this.nodes = []
     }
 //properties - size, head, tail
+// number of nodes in linked list
 
 get size() {
     return this.nodes.length;
 }
 
+// the first element in linked list
+
 get head() {
     return this.size ? this.nodes[0] : null
 }
 
+//the last element in linked list
 get tail() {
     return this.size ? this.nodes[this.size - 1] : null
 }
