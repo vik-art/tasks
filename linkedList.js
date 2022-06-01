@@ -55,6 +55,9 @@ class LinkedList {
     // find - for searching node by the value
 
     find(value) {
+        if (!this.head) {
+            return null;
+        }
         let currentNode = this.head;
         while (currentNode.next) {
             if (currentNode.value === value) {
@@ -64,6 +67,30 @@ class LinkedList {
         }
     }
 
+    //delete - for deleting node by the value
+
+    delete(value) {
+        if (!this.head) {
+            return null;
+        }
+        let deletedNode = null;
+        if (this.head.value === value) {
+            deletedNode = this.head;
+            this.head = this.head.next;
+            this.size--;
+            return deletedNode;
+        }
+        let currentNode = this.head.next;
+        while (currentNode.next) {
+            if (currentNode.next.value === value) {
+                deletedNode = currentNode.next;
+                currentNode.next = currentNode.next.next;
+                this.size--;
+                return deletedNode;
+            }
+            currentNode = currentNode.next;
+        }
+    }
 
 }
 
@@ -71,6 +98,6 @@ const list = new LinkedList();
 
 list.append("1").append("2").append("3").prepend("4").prepend("5").prepend("6")
 
+console.log(list.delete("3"));
 console.log(list)
 
-console.log(list.find("4"))
