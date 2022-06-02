@@ -21,8 +21,16 @@ class Set {
     }
     size() {
         return this.collection.length;
-}
-
+    }
+    keys() {
+        return {...this.collection}
+    }
 }
 
 const list = new Set();
+
+class WeakSet {
+    collection = [];
+
+
+}
