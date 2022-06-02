@@ -94,6 +94,24 @@ class LinkedList {
         }
     }
 
+    //indexOf - returns the index of node in linked list
+
+    indexOf(value) {
+        let idx = 0;
+        let current = this._head;
+        if (!this._head) {
+            return -1;
+        }
+        while (current !== null) {
+            if (current.value === value) {
+                return idx
+            }
+            idx++;
+            current = current.next;
+        }
+        return -1;
+    }
+
 }
 
 
