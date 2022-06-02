@@ -9,32 +9,22 @@ class Set {
         this.collection.push(el);
     }
     
-    delete() { 
-
+    delete(el) { 
+        this.collection = this.collection.filter(item => item !== el)
     }
     
     clear() { 
         this.collection = [];
     }
 
-    has() { }
-
+    has(el) { 
+        let arr = this.collection.filter(item => item === el);
+        return !!arr.length;
+    }
+    size() {
+        return this.collection.length;
+}
 
 }
 
 const list = new Set();
-
-list.add(1);
-list.add(1);
-list.add(2);
-list.add(1);
-list.add(4);
-list.add(3);
-list.add(5);
-list.add(2);
-
-console.log(list.collection)
-
-list.clear();
-
-console.log(list.collection)
