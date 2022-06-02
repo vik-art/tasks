@@ -10,8 +10,7 @@ class Node {
 }
 
 class LinkedList {
-    constructor() { }
-
+    
     _head = null;
     _tail = null;
     _size = 0;
@@ -112,9 +111,38 @@ class LinkedList {
         return -1;
     }
 
+    //addAt - insert node to the certain position in the linked list
+
+    addAt(value, position) {
+        if (position < 0 || position > this._size) {
+            return null;
+        }
+        const newNode = new Node(value);
+        if (position === 0) {
+            newNode.next = this._head;
+            this._head = newNode;
+            this._size++;
+        } else {
+            let count = 0;
+            let current = this._head;
+            let prev = null;
+            while (count < position) {
+                prev = current;
+                current = current.next;
+                count++;
+            }
+            prev.next = newNode;
+            newNode.next = current;
+        }
+        this._size++
+        return this;
+    }
+
 }
 
 
 const list = new LinkedList();
 
-
+list.append(1).append(3).append(5)
+console.log(list.addAt(0, 2))
+console.log(list)
