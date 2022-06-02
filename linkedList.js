@@ -111,6 +111,21 @@ class LinkedList {
         return -1;
     }
 
+    //valueOf - find the element by its index
+
+    valueOf(idx) {
+        if (idx < 0 || idx > this._size) {
+            return null;
+        }
+        let count = 0;
+        let current = this._head;
+        while (count < idx) {
+            current = current.next;
+            count++;
+        }
+        return current;
+    }
+
     //addAt - insert node to the certain position in the linked list
 
     addAt(value, position) {
@@ -144,5 +159,4 @@ class LinkedList {
 const list = new LinkedList();
 
 list.append(1).append(3).append(5)
-console.log(list.addAt(0, 2))
-console.log(list)
+console.log(list.valueOf(-8))
