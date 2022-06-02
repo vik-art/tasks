@@ -1,7 +1,6 @@
 // LinkedList - sequence of items in linear order which are linked to each other
 // types: singly (each node only has one pointer), doubly (each node has next and previous pointer)
 // circlular (the tail mode point to the head node)
-
 class Node {
     constructor(value, next = null) {
         this.value = value,
@@ -10,26 +9,22 @@ class Node {
 }
 
 class LinkedList {
-    
     _head = null;
     _tail = null;
     _size = 0;
 
-//properties 
-    
-   get head() {
+//properties
+    get head() {
         return this._head;
     }
-
-   get tail() {
+    get tail() {
         return this._tail;
     }
-
     get size() {
         return this._size;
     }
 
-    //append - method for adding item to the end of the linked list
+//append - method for adding item to the end of the linked list
     append(value) {
         const newNode = new Node(value);
         if (!this._head) {
@@ -37,24 +32,23 @@ class LinkedList {
             this._tail = newNode;
             this._size++;
             return this;
-        } 
-            this._tail.next = newNode;
-            this._tail = newNode;
-            this._size++;
+        }
+        this._tail.next = newNode;
+        this._tail = newNode;
+        this._size++;
         return this;
     }
-    // prepend - method for adding item to the begining of the linked list
 
+// prepend - method for adding item to the begining of the linked list
     prepend(value) {
         const newNode = new Node(value);
-            newNode.next = this._head;
+        newNode.next = this._head;
         this._head = newNode;
         this._size++;
-            return this;
+        return this;
     }
 
-    // find - for searching node by the value
-
+// find - for searching node by the value
     find(value) {
         if (!this._head) {
             return null;
@@ -63,13 +57,12 @@ class LinkedList {
         while (currentNode.next) {
             if (currentNode.value === value) {
                 return currentNode;
-            } 
-        currentNode = currentNode.next;
+            }
+            currentNode = currentNode.next;
         }
     }
 
-    //delete - for deleting node by the value
-
+//delete - for deleting node by the value
     delete(value) {
         if (!this._head) {
             return null;
@@ -93,7 +86,7 @@ class LinkedList {
         }
     }
 
-    //indexOf - returns the index of node in linked list
+//indexOf - returns the index of node in linked list
 
     indexOf(value) {
         let idx = 0;
@@ -103,7 +96,7 @@ class LinkedList {
         }
         while (current !== null) {
             if (current.value === value) {
-                return idx
+                return idx;
             }
             idx++;
             current = current.next;
@@ -149,11 +142,11 @@ class LinkedList {
             prev.next = newNode;
             newNode.next = current;
         }
-        this._size++
+        this._size++;
         return this;
     }
 
-    //removeAt - remove node from the certian position in the linked list
+//removeAt - remove node from the certian position in the linked list
 
     removeAt(idx) {
         if (idx < 0 || idx > this._size) {
