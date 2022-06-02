@@ -10,55 +10,57 @@ class Node {
 }
 
 class LinkedList {
-    constructor() {
-        this.head = null,
-        this.tail = null,
-        this.size = 0;
-    }
+    constructor() { }
+
+    _head = null;
+    _tail = null;
+    _size = 0;
+
 //properties 
-    head() {
-        return this.head;
+    
+   get head() {
+        return this._head;
     }
 
-    tail() {
-        return this.tail;
+   get tail() {
+        return this._tail;
     }
 
-    size() {
-        return this.size;
+    get size() {
+        return this._size;
     }
 
     //append - method for adding item to the end of the linked list
     append(value) {
         const newNode = new Node(value);
-        if (!this.head) {
-            this.head = newNode;
-            this.tail = newNode;
-            this.size++;
+        if (!this._head) {
+            this._head = newNode;
+            this._tail = newNode;
+            this._size++;
             return this;
         } 
-            this.tail.next = newNode;
-            this.tail = newNode;
-            this.size++;
+            this._tail.next = newNode;
+            this._tail = newNode;
+            this._size++;
         return this;
     }
     // prepend - method for adding item to the begining of the linked list
 
     prepend(value) {
         const newNode = new Node(value);
-            newNode.next = this.head;
-        this.head = newNode;
-        this.size++;
+            newNode.next = this._head;
+        this._head = newNode;
+        this._size++;
             return this;
     }
 
     // find - for searching node by the value
 
     find(value) {
-        if (!this.head) {
+        if (!this._head) {
             return null;
         }
-        let currentNode = this.head;
+        let currentNode = this._head;
         while (currentNode.next) {
             if (currentNode.value === value) {
                 return currentNode;
@@ -70,22 +72,22 @@ class LinkedList {
     //delete - for deleting node by the value
 
     delete(value) {
-        if (!this.head) {
+        if (!this._head) {
             return null;
         }
         let deletedNode = null;
-        if (this.head.value === value) {
-            deletedNode = this.head;
-            this.head = this.head.next;
-            this.size--;
+        if (this._head.value === value) {
+            deletedNode = this._head;
+            this._head = this._head.next;
+            this._size--;
             return deletedNode;
         }
-        let currentNode = this.head.next;
+        let currentNode = this._head.next;
         while (currentNode.next) {
             if (currentNode.next.value === value) {
                 deletedNode = currentNode.next;
                 currentNode.next = currentNode.next.next;
-                this.size--;
+                this._size--;
                 return deletedNode;
             }
             currentNode = currentNode.next;
@@ -94,5 +96,7 @@ class LinkedList {
 
 }
 
+
+const list = new LinkedList();
 
 
