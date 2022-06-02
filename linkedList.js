@@ -153,10 +153,32 @@ class LinkedList {
         return this;
     }
 
+    //removeAt - remove node from the certian position in the linked list
+
+    removeAt(idx) {
+        if (idx < 0 || idx > this._size) {
+            return null;
+        }
+        let current = this._head;
+        if (idx === 0) {
+            this._head = current.next;
+        } else {
+            let prev = null;
+            let count = 0;
+            while (count < idx) {
+                prev = current;
+                current = current.next;
+                count++;
+            }
+            prev.next = current.next;
+        }
+        this._size--;
+        return this;
+    }
+
 }
 
 
 const list = new LinkedList();
 
-list.append(1).append(3).append(5)
-console.log(list.valueOf(-8))
+
