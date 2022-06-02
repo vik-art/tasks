@@ -94,10 +94,5 @@ class LinkedList {
 
 }
 
-const list = new LinkedList();
 
-list.append("1").append("2").append("3").prepend("4").prepend("5").prepend("6")
-
-console.log(list.delete("3"));
-console.log(list)
 
