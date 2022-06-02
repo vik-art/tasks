@@ -3,8 +3,7 @@ class Set {
 
     add(el) { 
         if (this.collection.length) {
-            let copies = this.collection.filter(item => item === el);
-            return copies.length > 0 ? null : this.collection.push(el);
+          return this.has(el) ? null : this.collection.push(el);
         }
         this.collection.push(el);
     }
@@ -18,8 +17,7 @@ class Set {
     }
 
     has(el) { 
-        let arr = this.collection.filter(item => item === el);
-        return !!arr.length;
+        return this.collection.indexOf(el) !== -1;
     }
     size() {
         return this.collection.length;
