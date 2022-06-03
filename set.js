@@ -33,22 +33,28 @@ const list = new Set();
 class WeakSet {
     collection = [];
 
-    isObj(obj) {
-        return obj !== null && obj.constructor.name === "Object";
-    }
     add(item) { 
-        if (!this.isObj(item) || this.has(item)) {
+        if (this.isObj(item)) {
+            if (this.collection.length) {
+              this.has(item) ? null : this.collection.push(item);
+            }
+            this.collection.push(item)
+        } else {
             return null;
         }
-        this.collection.push(item)
+    }
+    isObj(obj) {
+        return obj !== null && obj.constructor.name === "Object";
     }
     has() { 
         return this.collection.indexOf !== -1;
     }
-    delete(item) {
-        this.collection = this.collection.filter(el => el !== item)
+    delete(idx) {
+     this.collection = this.collection.filter((el, i) => i !== idx)
     }
-    clear() {
-        this.collection = [];
-    }
+    
 }
+
+const newList = new WeakSet()
+
+
