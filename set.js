@@ -47,6 +47,9 @@ class WeakSet {
         return this.collection.indexOf !== -1;
     }
     delete(idx) {
+        if (idx < 0 || idx > this.collection.length) {
+            return null;
+        }
         this.collection = this.collection.filter((el, i) => i !== idx);
     }
     
