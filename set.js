@@ -25,7 +25,43 @@ class Set {
     keys() {
         return { ...this.collection };
     }
+    union(set) {
+        let result = [];
+        let arr = Array.from(set.collection);
+        result = this.collection
+            .filter(el => arr.indexOf(el) !== -1)
+        return result;
+     }
+    difference(set) {
+        let result = [];
+        let arr = Array.from(set.collection);
+        result = this.collection
+            .filter(el => arr.indexOf(el) === -1)
+            .concat(arr.filter(el => this.collection.indexOf(el) === -1))
+        return result;
+     }
+    subset(set) { }
 }
+
+const list = new Set();
+const secondList = new Set();
+
+list.add(1)
+list.add(1)
+list.add(2)
+list.add(2)
+list.add("some text")
+secondList.add(1)
+secondList.add(3);
+secondList.add(1)
+secondList.add("New text")
+secondList.add("some text")
+
+console.log(list)
+console.log(secondList)
+
+console.log(list.union(secondList))
+console.log(list.difference(secondList))
 
 class WeakSet {
     collection = [];
