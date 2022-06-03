@@ -29,20 +29,24 @@ class Set {
         let result = [];
         let arr = Array.from(set.collection);
         result = this.collection
-            .filter(el => arr.indexOf(el) !== -1)
+            .filter(el => arr
+                .indexOf(el) !== -1);
         return result;
      }
     difference(set) {
         let result = [];
         let arr = Array.from(set.collection);
         result = this.collection
-            .filter(el => arr.indexOf(el) === -1)
-            .concat(arr.filter(el => this.collection.indexOf(el) === -1))
+            .filter(el => arr
+                .indexOf(el) === -1)
+            .concat(arr
+                .filter(el => this.collection
+                    .indexOf(el) === -1));
         return result;
      }
     subset(set) {
         let arr = Array.from(set.collection);
-        return arr.every(el => this.collection.includes(el))
+        return arr.every(el => this.collection.includes(el));
     }
 }
 
