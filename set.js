@@ -9,7 +9,7 @@ class Set {
     }
     
     delete(el) { 
-        this.collection = this.collection.filter(item => item !== el)
+        this.collection = this.collection.filter(item => item !== el);
     }
     
     clear() { 
@@ -23,12 +23,9 @@ class Set {
         return this.collection.length;
     }
     keys() {
-        return {...this.collection}
+        return { ...this.collection };
     }
 }
-
-const list = new Set();
-
 
 class WeakSet {
     collection = [];
@@ -38,7 +35,7 @@ class WeakSet {
             if (this.collection.length) {
               this.has(item) ? null : this.collection.push(item);
             }
-            this.collection.push(item)
+            this.collection.push(item);
         } else {
             return null;
         }
@@ -50,11 +47,9 @@ class WeakSet {
         return this.collection.indexOf !== -1;
     }
     delete(idx) {
-     this.collection = this.collection.filter((el, i) => i !== idx)
+        this.collection = this.collection.filter((el, i) => i !== idx);
     }
     
 }
-
-const newList = new WeakSet()
 
 
