@@ -1,5 +1,4 @@
 // Queue - FIFO: first in first out
-
 class Queue {
     constructor() {
         this.collection = [];
