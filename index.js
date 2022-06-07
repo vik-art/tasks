@@ -35,17 +35,38 @@ class Queue {
 
 class WebAPI {
     collection = [];
-    add(func) {
-        this.collection.push(func)
+    add(event) {
+        this.collection.push(event)
     }
-    delete(func) {
-        this.collection.pop(func)
+    delete(event) {
+        this.collection.pop(event)
     }
 }
 
 class Event {
-    constructor(event, type = 'sync') {
-        this.value = value,
-        this.next = next
+    constructor(event, type = 'sync', func) {
+        this.event = event;
+        this.type = type;
+        this.func = func;
+    }
+}
+
+class EventLoop {
+    event = new Event(click, 'async');
+    stack = new Stack();
+    queue = new Queue();
+    webApi = new WebAPI();
+
+    event() {
+        this.stack.push(this.event);
+        if (this.event.type === 'sync') {
+            this.stack.pop(this.event)
+        } else {
+            this.webApi.add(this.event);
+            this.queue.enqueue(this.event);
+            if (this.stack.isEmpty) {
+                this.stack.push(this.event)
+            }
+        }
     }
 }
