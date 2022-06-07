@@ -44,10 +44,9 @@ class WebAPI {
 }
 
 class Event {
-    constructor(event, type = 'sync', func) {
+    constructor(event, type = 'sync') {
         this.event = event;
         this.type = type;
-        this.func = func;
     }
 }
 
@@ -60,13 +59,16 @@ class EventLoop {
     event() {
         this.stack.push(this.event);
         if (this.event.type === 'sync') {
-            this.stack.pop(this.event)
+            this.stack.pop(this.event);
         } else {
             this.webApi.add(this.event);
             this.queue.enqueue(this.event);
-            if (this.stack.isEmpty) {
-                this.stack.push(this.event)
+            for (let i = 0; i < this.queue.collection.length; i++) {
+                if (this.stack.isEmpty) {
+                    this.stack.push(this.event);
+                }
             }
+            this.stack.pop(this.event);
         }
     }
 }
