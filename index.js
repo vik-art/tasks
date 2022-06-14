@@ -8,7 +8,7 @@ class Stack {
     }
 
     pop() {
-        return this.collection.pop()
+        return this.collection.pop();
     }
 
     isEmpty() {
@@ -21,7 +21,7 @@ class Queue {
     }
     enqueue(el) {
         this.collection.push(el);
-        return this.collection
+        return this.collection;
     }
 
     dequeue() {
@@ -36,10 +36,11 @@ class Queue {
 class WebAPI {
     collection = [];
     add(event) {
-        this.collection.push(event)
+        this.collection.push(event);
     }
+
     delete(event) {
-        this.collection.pop(event)
+        this.collection.pop(event);
     }
 }
 
