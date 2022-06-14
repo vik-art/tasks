@@ -62,9 +62,11 @@ class EventLoop {
             this.stack.pop(this.event);
         } else {
             this.webApi.add(this.event);
+            this.webApi.delete(this.event);
             this.queue.enqueue(this.event);
             for (let i = 0; i < this.queue.collection.length; i++) {
                 if (this.stack.isEmpty) {
+                     this.queue.dequeue(this.event);
                     this.stack.push(this.event);
                 }
             }
@@ -72,3 +74,4 @@ class EventLoop {
         }
     }
 }
+
